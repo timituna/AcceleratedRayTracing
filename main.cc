@@ -104,7 +104,7 @@ void checkered_spheres() {
 }
 
 void image() {
-    auto earth_texture = make_shared<ImageTexture>("link_zelda.jpg");
+    auto earth_texture = make_shared<ImageTexture>("world.jpg");
     auto earth_surface = make_shared<Lambertian>(earth_texture);
     auto globe = make_shared<Sphere>(Point3(0,0,0), 2, earth_surface);
 
@@ -343,7 +343,7 @@ void final_scene(int image_width, int samples_per_pixel, int max_depth) {
     boundary = make_shared<Sphere>(Point3(0,0,0), 5000, make_shared<Dielectric>(1.5));
     world.add(make_shared<ConstantMedium>(boundary, .0001, Color(1,1,1)));
 
-    auto emat = make_shared<Lambertian>(make_shared<ImageTexture>("link_zelda.jpg"));
+    auto emat = make_shared<Lambertian>(make_shared<ImageTexture>("world.jpg"));
     world.add(make_shared<Sphere>(Point3(400,200,400), 100, emat));
     auto pertext = make_shared<NoiseTexture>(0.2);
     world.add(make_shared<Sphere>(Point3(220,280,300), 80, make_shared<Lambertian>(pertext)));
